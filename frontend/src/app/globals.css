@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary:#0A0A0A;
+  --color-accent: #C9A96E;       
+  --color-accent-light: #E8D5B0;  
+  --color-bg: #FAFAF8;            
+  --color-surface: #FFFFFF;       
+  --color-border: #E5E5E0; 
+  --color-text-muted: #737370; 
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color_primary);
+}
+@layer components{
+  .btn-primary{
+    @apply px-6 py-3 bg-[#C9A96E] text-white font-medium rounded-full hover:bg-[#B8935A] transition-all duration-200 active:scale-95 cursor-pointer;
+  }
+  .btn-secondary {
+    @apply px-6 py-3 border border-[#C9A96E] text-[#C9A96E] font-medium rounded-full hover:bg-[#C9A96E] hover:text-white transition-all duration-200 cursor-pointer;
+  }
+  .card {
+    @apply bg-white rounded-2xl border border-[#E5E5E0] hover:shadow-lg transition-shadow duration-300;
+  }
+}
