@@ -67,7 +67,7 @@ def embed():
     # Takes a string → runs it through the neural network → returns 384 numbers
     # convert_to_list=True converts numpy array to plain Python list
     # (we need plain list to convert to JSON — numpy arrays aren't JSON serializable)
-    embedding = model.encode(text, convert_to_list=True)
+    embedding = model.encode(text).tolist()
 
     return jsonify({
         'embedding': embedding,
@@ -89,7 +89,7 @@ def embed_batch():
     if len(texts) == 0:
         return jsonify({'error': 'texts array cannot be empty'}), 400
 
-    embeddings = model.encode(texts, convert_to_list=True, show_progress_bar=True)
+    embeddings = model.encode(texts, show_progress_bar=True).tolist()
     
     return jsonify({
         'embeddings': embeddings,       # list of 384-number lists
